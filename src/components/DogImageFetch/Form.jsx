@@ -1,12 +1,6 @@
-import { useMemo, useState } from 'react'
-import DogImage from './DogImage'
+import React from 'react'
 
-export default function OptimizedImageFetch() {
-  const [breed, setBreed] = useState('affenpinscher')
-  const [dogName, setDogName] = useState('')
-
-  const params = useMemo(() => ({ breed }), [breed])
-
+export default function Form({ dogName, setDogName, breed, setBreed }) {
   return (
     <div>
       <label htmlFor="dogName">
@@ -38,8 +32,6 @@ export default function OptimizedImageFetch() {
           </select>
         </div>
       </label>
-
-      <DogImage params={params} />
     </div>
   )
 }

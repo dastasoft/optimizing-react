@@ -1,11 +1,9 @@
 import { useContext, useState } from 'react'
 
+import { fibonacci } from '../../fibonacci'
 import OptimizedFibonacci from './OptimizedFibonacci'
 import UnoptimizedFibonacci from './Fibonacci'
 import { PerformanceContext } from '../../context/PerformanceContext'
-
-const fibonacci = (num) =>
-  num < 2 ? num : fibonacci(num - 1) + fibonacci(num - 2)
 
 export default function Fibonacci() {
   const [optimized, setOptimized] = useState(true)

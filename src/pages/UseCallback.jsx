@@ -1,3 +1,9 @@
+import CatImageFetch from '../components/CatImageFetch'
+
 export default function UseCallback() {
-  return <div>UseCallback</div>
+  return (
+    <div>
+      <CatImageFetch />
+    </div>
+  )
 }

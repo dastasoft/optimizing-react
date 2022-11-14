@@ -1,10 +1,10 @@
-import ImageFetch from '../components/ImageFetch'
+import DogImageFetch from '../components/DogImageFetch'
 import Fibonacci from '../components/Fibonacci'
 
 export default function UseMemo() {
   return (
     <div>
-      <ImageFetch />
+      <DogImageFetch />
       <Fibonacci />
     </div>
   )

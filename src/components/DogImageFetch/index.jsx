@@ -2,7 +2,7 @@ import { useState } from 'react'
 import OptimizedImageFetch from './OptimizedImageFetch'
 import ImageFetch from './ImageFetch'
 
-export default function Form() {
+export default function DogImageFetch() {
   const [optimized, setOptimized] = useState(true)
 
   return (
