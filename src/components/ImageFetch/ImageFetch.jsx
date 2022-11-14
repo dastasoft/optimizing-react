@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react'
-
-const imageFetch = async (url) => {
-  const response = await fetch(url)
-
-  return response.json()
-}
+import { useState } from 'react'
+import DogImage from './DogImage'
 
 export default function ImageFetch() {
   const [breed, setBreed] = useState('affenpinscher')
-  const [dogImage, setDogImage] = useState(null)
+  const [dogName, setDogName] = useState('')
 
   const params = { breed }
 
-  useEffect(() => {
-    imageFetch(`https://dog.ceo/api/breed/${params.breed}/images/random`).then(
-      (res) => setDogImage(res.message)
-    )
-  }, [params])
-
   return (
     <div>
+      <label htmlFor="dogName">
+        Name
+        <div>
+          <input
+            name="dogName"
+            id="dogName"
+            value={dogName}
+            onChange={(e) => setDogName(e.target.value)}
+          />
+        </div>
+      </label>
       <label htmlFor="breed">
         Breed
         <div>
@@ -38,7 +38,8 @@ export default function ImageFetch() {
           </select>
         </div>
       </label>
-      <div>{dogImage && <img src={dogImage} alt="dog" />}</div>
+
+      <DogImage params={params} />
     </div>
   )
 }
