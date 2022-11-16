@@ -1,12 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-
-import { fibonacci } from '../../fibonacci'
+import { useEffect, useState } from 'react'
 
 const DELAY_TIME = 1000
-const HANDICAP_FACTOR = 39
 
-const imageFetch = async (url, hadicap) => {
-  fibonacci(hadicap ? HANDICAP_FACTOR : 0)
+const imageFetch = async (url) => {
   const response = await fetch(url)
   return response.json()
 }
@@ -14,17 +10,12 @@ const imageFetch = async (url, hadicap) => {
 export default function DogImage({ params }) {
   const [dogImage, setDogImage] = useState(null)
   const [loading, setLoading] = useState(true)
-  const isFirstRun = useRef(false)
 
   const { breed } = params
 
   useEffect(() => {
     setLoading(true)
-    isFirstRun.current = false
-    imageFetch(
-      `https://dog.ceo/api/breed/${breed}/images/random`,
-      !isFirstRun.current
-    )
+    imageFetch(`https://dog.ceo/api/breed/${breed}/images/random`)
       .then((res) =>
         setTimeout(() => {
           setDogImage(res.message)

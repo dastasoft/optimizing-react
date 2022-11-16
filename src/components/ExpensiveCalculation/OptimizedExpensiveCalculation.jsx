@@ -1,9 +1,14 @@
-export default function Fibonacci({
+import { useMemo } from 'react'
+
+export default function OptimizedExpensiveCalculation({
   targetNumber,
   setTargetNumber,
-  fibonacci,
+  expensiveCalculation,
 }) {
-  const fibonacciNumber = fibonacci(targetNumber)
+  const result = useMemo(
+    () => expensiveCalculation(targetNumber),
+    [targetNumber]
+  )
 
   return (
     <div>
@@ -22,8 +27,12 @@ export default function Fibonacci({
           </div>
         </label>
 
-        <span>Result: {fibonacciNumber}</span>
+        <span>Result: {result}</span>
       </div>
+      <p>
+        Surrounding the expensive calculation with useMemo the execution for the
+        same value is avoided and directly returned the result saved in memory.
+      </p>
     </div>
   )
 }

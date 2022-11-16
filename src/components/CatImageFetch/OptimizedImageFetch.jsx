@@ -14,6 +14,12 @@ export default function OptimizedImageFetch() {
 
   return (
     <div>
+      <p>
+        Optimized version wraps the function in a useCallback which returns a
+        memorized version of the function which is fact the same, the function
+        gets executed every time, but no re declared so it prevents unnecessary
+        rerenders and dependant side effects.
+      </p>
       <Form
         breed={breed}
         setBreed={setBreed}

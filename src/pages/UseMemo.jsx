@@ -1,11 +1,12 @@
 import DogImageFetch from '../components/DogImageFetch'
-import Fibonacci from '../components/Fibonacci'
+import ExpensiveCalculations from '../components/ExpensiveCalculation'
 
 export default function UseMemo() {
   return (
     <div>
       <DogImageFetch />
-      <Fibonacci />
+      <hr />
+      <ExpensiveCalculations />
     </div>
   )
 }

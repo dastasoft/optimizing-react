@@ -1,11 +1,9 @@
-import { useMemo } from 'react'
-
-export default function OptimizedFibonacci({
+export default function ExpensiveCalculation({
   targetNumber,
   setTargetNumber,
-  fibonacci,
+  expensiveCalculation,
 }) {
-  const fibonacciNumber = useMemo(() => fibonacci(targetNumber), [targetNumber])
+  const result = expensiveCalculation(targetNumber)
 
   return (
     <div>
@@ -24,8 +22,14 @@ export default function OptimizedFibonacci({
           </div>
         </label>
 
-        <span>Result: {fibonacciNumber}</span>
+        <span>Result: {result}</span>
       </div>
+      <p>
+        As this component is connected to the the context is rerendered in an
+        infinite loop due to the changes performed in the{' '}
+        <b>Performance Gauge</b> . Due to the rerenders the expensive function
+        is triggered on every render, causing visible performance slowness.
+      </p>
     </div>
   )
 }

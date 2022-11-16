@@ -1,14 +1,15 @@
+/* eslint-disable no-underscore-dangle */
 import { useContext, useState } from 'react'
 
-import { fibonacci } from '../../fibonacci'
-import OptimizedFibonacci from './OptimizedFibonacci'
-import UnoptimizedFibonacci from './Fibonacci'
+import { fibonacci } from './fibonacci'
+import OptimizedExpensiveCalculation from './OptimizedExpensiveCalculation'
+import ExpensiveCalculation from './ExpensiveCalculation'
 import { PerformanceContext } from '../../context/PerformanceContext'
 
-export default function Fibonacci() {
-  const [optimized, setOptimized] = useState(true)
+export default function ExpensiveCalculations() {
+  const [optimized, setOptimized] = useState(false)
   const [targetNumber, setTargetNumber] = useState(1)
-  const context = useContext(PerformanceContext)
+  const _context = useContext(PerformanceContext)
 
   return (
     <div>
@@ -25,16 +26,16 @@ export default function Fibonacci() {
         </div>
       </label>
       {optimized ? (
-        <OptimizedFibonacci
+        <OptimizedExpensiveCalculation
           targetNumber={targetNumber}
           setTargetNumber={setTargetNumber}
-          fibonacci={fibonacci}
+          expensiveCalculation={fibonacci}
         />
       ) : (
-        <UnoptimizedFibonacci
+        <ExpensiveCalculation
           targetNumber={targetNumber}
           setTargetNumber={setTargetNumber}
-          fibonacci={fibonacci}
+          expensiveCalculation={fibonacci}
         />
       )}
     </div>

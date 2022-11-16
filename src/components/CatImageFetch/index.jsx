@@ -3,7 +3,7 @@ import OptimizedImageFetch from './OptimizedImageFetch'
 import ImageFetch from './ImageFetch'
 
 export default function CatImageFetch() {
-  const [optimized, setOptimized] = useState(true)
+  const [optimized, setOptimized] = useState(false)
 
   return (
     <div>
