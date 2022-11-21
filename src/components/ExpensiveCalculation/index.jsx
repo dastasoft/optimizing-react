@@ -12,32 +12,41 @@ export default function ExpensiveCalculations() {
   const _context = useContext(PerformanceContext)
 
   return (
-    <div>
-      <h3 className="text-xl font-bold">Expensive Calculation</h3>
-      <label htmlFor="optimized">
-        Optimized
-        <div>
-          <input
-            name="optimized"
-            type="checkbox"
-            checked={optimized}
-            onChange={(e) => setOptimized(e.target.checked)}
-          />
+    <div className="w-full flex justify-center">
+      <div className="card w-100 max-w-5xl bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title">Expensive Calculation</h2>
+
+          <div className="form-control my-2">
+            <label
+              className="label cursor-pointer flex justify-start"
+              htmlFor="optimized"
+            >
+              <span className="label-text mr-2">Optimized</span>
+              <input
+                type="checkbox"
+                className="checkbox checkbox-primary"
+                name="optimized"
+                checked={optimized}
+                onChange={(e) => setOptimized(e.target.checked)}
+              />
+            </label>
+          </div>
+          {optimized ? (
+            <OptimizedExpensiveCalculation
+              targetNumber={targetNumber}
+              setTargetNumber={setTargetNumber}
+              expensiveCalculation={fibonacci}
+            />
+          ) : (
+            <ExpensiveCalculation
+              targetNumber={targetNumber}
+              setTargetNumber={setTargetNumber}
+              expensiveCalculation={fibonacci}
+            />
+          )}
         </div>
-      </label>
-      {optimized ? (
-        <OptimizedExpensiveCalculation
-          targetNumber={targetNumber}
-          setTargetNumber={setTargetNumber}
-          expensiveCalculation={fibonacci}
-        />
-      ) : (
-        <ExpensiveCalculation
-          targetNumber={targetNumber}
-          setTargetNumber={setTargetNumber}
-          expensiveCalculation={fibonacci}
-        />
-      )}
+      </div>
     </div>
   )
 }

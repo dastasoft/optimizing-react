@@ -1,20 +1,31 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
     <header className="p-4 bg-indigo-900 text-white flex items-center">
-      <Link to="/" className="font-black text-2xl mr-6">
+      <NavLink to="/" className="font-black text-3xl mr-6">
         React Optimization
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/use-callback"
-        className="font-bold text-xl hover:text-gray-900 mr-4"
+        className={(navData) =>
+          navData.isActive
+            ? 'font-bold text-xl hover:text-gray-900 mr-4 p-2 border-2 border-gray-900 rounded-xl'
+            : 'font-bold text-xl hover:text-gray-900 mr-4 p-2'
+        }
       >
         useCallback
-      </Link>
-      <Link to="/use-memo" className="font-bold text-xl hover:text-gray-900">
+      </NavLink>
+      <NavLink
+        to="/use-memo"
+        className={(navData) =>
+          navData.isActive
+            ? 'font-bold text-xl hover:text-gray-900 mr-4 p-2 border-2 border-gray-900 rounded-xl'
+            : 'font-bold text-xl hover:text-gray-900 mr-4 p-2'
+        }
+      >
         useMemo
-      </Link>
+      </NavLink>
     </header>
   )
 }

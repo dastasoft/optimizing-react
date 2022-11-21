@@ -8,7 +8,7 @@ const imageFetch = async (url) => {
 }
 
 export default function CatImage({ params }) {
-  const [dogImage, setDogImage] = useState(null)
+  const [catImage, setCatImage] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const breed = params()
@@ -18,7 +18,7 @@ export default function CatImage({ params }) {
     imageFetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed}`)
       .then((res) =>
         setTimeout(() => {
-          setDogImage(res[0].url)
+          setCatImage(res[0].url)
           setLoading(false)
         }, DELAY_TIME)
       )
@@ -26,8 +26,10 @@ export default function CatImage({ params }) {
   }, [params])
 
   return loading ? (
-    <div>Loading...</div>
+    <div className="w-full my-2">Loading...</div>
   ) : (
-    <div>{dogImage && <img src={dogImage} alt="dog" />}</div>
+    <figure className="w-full my-2 rounded-xl">
+      {catImage && <img src={catImage} alt="cat" className="w-full h-auto" />}
+    </figure>
   )
 }

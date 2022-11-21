@@ -3,10 +3,9 @@ import ExpensiveCalculations from '../components/ExpensiveCalculation'
 
 export default function UseMemo() {
   return (
-    <div>
-      <DogImageFetch />
-      <hr />
+    <div className="w-full flex flex-col lg:flex-row gap-8 justify-center">
       <ExpensiveCalculations />
+      <DogImageFetch />
     </div>
   )
 }

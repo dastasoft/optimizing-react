@@ -26,8 +26,10 @@ export default function DogImage({ params }) {
   }, [params])
 
   return loading ? (
-    <div>Loading...</div>
+    <div className="w-full my-2">Loading...</div>
   ) : (
-    <div>{dogImage && <img src={dogImage} alt="dog" />}</div>
+    <figure className="w-full my-2 rounded-xl">
+      {dogImage && <img src={dogImage} alt="cat" className="w-full h-auto" />}
+    </figure>
   )
 }

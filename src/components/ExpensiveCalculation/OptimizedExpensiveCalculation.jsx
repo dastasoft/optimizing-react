@@ -12,6 +12,10 @@ export default function OptimizedExpensiveCalculation({
 
   return (
     <div>
+      <p>
+        Surrounding the expensive calculation with useMemo the execution for the
+        same value is avoided and directly returned the result saved in memory.
+      </p>
       <div className="mb-2">
         <label htmlFor="targetNumber">
           Fibonacci number
@@ -29,10 +33,6 @@ export default function OptimizedExpensiveCalculation({
 
         <span>Result: {result}</span>
       </div>
-      <p>
-        Surrounding the expensive calculation with useMemo the execution for the
-        same value is avoided and directly returned the result saved in memory.
-      </p>
     </div>
   )
 }
