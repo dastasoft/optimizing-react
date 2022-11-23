@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Form({ catName, setCatName, breed, setBreed }) {
   return (
-    <div className="flex items-center my-4">
-      <div className="form-control flex-1 mr-4">
+    <div className="flex flex-col items-center my-4 sm:flex-row">
+      <div className="form-control flex-1 sm:mr-4">
         <div className="input-group w-full">
           <input
             type="text"

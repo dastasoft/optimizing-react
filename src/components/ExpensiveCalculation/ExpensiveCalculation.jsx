@@ -8,14 +8,14 @@ export default function ExpensiveCalculation({
   return (
     <div>
       <p>
-        As this component is connected to the the context is rerendered in an
-        infinite loop due to the changes performed in the{' '}
-        <b>Performance Gauge</b> . Due to the rerenders the expensive function
-        is triggered on every render, causing visible performance slowness.
+        As this component is connected to the context, it is re-rendered in an
+        infinite loop due to changes made to the performance flag. Due to the
+        re-renderings, the expensive calculation is triggered on each rendering,
+        causing a visible performance slowdown when higher values are reached.
       </p>
       <div className="my-6">
         <label htmlFor="targetNumber" className="font-bold">
-          Fibonacci Number
+          Fibonacci Number - {result}
           <input
             name="targetNumber"
             type="range"

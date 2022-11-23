@@ -15,9 +15,9 @@ export default function OptimizedImageFetch() {
   return (
     <div>
       <p>
-        Surrounding with useMemo returns the same object stored previously in
-        memory, same address, equality is true so prevents unnecessary renders
-        and dependant side effects.
+        Surrounding with useMemo returns the same object previously stored in
+        memory, same address, equality is true so avoids unnecessary rendering
+        and dependent side effects.
       </p>
       <Form
         breed={breed}

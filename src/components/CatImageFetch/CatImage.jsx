@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import Spinner from '../Spinner'
+
 const DELAY_TIME = 1000
 
 const imageFetch = async (url) => {
@@ -26,7 +28,7 @@ export default function CatImage({ params }) {
   }, [params])
 
   return loading ? (
-    <div className="w-full my-2">Loading...</div>
+    <Spinner />
   ) : (
     <figure className="w-full my-2 rounded-xl">
       {catImage && <img src={catImage} alt="cat" className="w-full h-auto" />}

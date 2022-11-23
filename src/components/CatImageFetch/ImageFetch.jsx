@@ -12,9 +12,9 @@ export default function ImageFetch() {
   return (
     <div>
       <p>
-        As unoptimized version, every time you change the input the component
-        rerenders, re declares the function and even is the &quot;same&quot;
-        function the address on memory is different
+        As a non-optimised version, every time you change the input the
+        component is re-rendered, the function is re-declared and even if it is
+        the &quot;same&quot; function, the memory address is different.
       </p>
       <Form
         breed={breed}

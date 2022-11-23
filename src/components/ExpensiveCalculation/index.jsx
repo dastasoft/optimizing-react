@@ -1,15 +1,15 @@
-/* eslint-disable no-underscore-dangle */
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 import { fibonacci } from './fibonacci'
 import OptimizedExpensiveCalculation from './OptimizedExpensiveCalculation'
 import ExpensiveCalculation from './ExpensiveCalculation'
-import { PerformanceContext } from '../../context/PerformanceContext'
+import PerformanceGauge from '../PerformanceGauge'
+import usePerformanceGauge from '../../hooks/usePerformanceGauge'
 
 export default function ExpensiveCalculations() {
   const [optimized, setOptimized] = useState(false)
   const [targetNumber, setTargetNumber] = useState(1)
-  const _context = useContext(PerformanceContext)
+  const [numBlocks] = usePerformanceGauge()
 
   return (
     <div className="w-full flex justify-center">
@@ -45,6 +45,7 @@ export default function ExpensiveCalculations() {
               expensiveCalculation={fibonacci}
             />
           )}
+          <PerformanceGauge numBlocks={numBlocks} />
         </div>
       </div>
     </div>
