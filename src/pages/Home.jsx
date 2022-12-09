@@ -13,7 +13,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center sm:flex-row sm:place-content-center">
             <a
-              href="https://blog.dastasoft.com"
+              href="https://www.freecodecamp.org/news/better-react-performance-usecallback-vs-usememo/"
               target="_blank"
               rel="noreferrer"
               className="btn mb-4 sm:mb-0 sm:mr-4"
